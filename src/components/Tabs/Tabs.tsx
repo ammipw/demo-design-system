@@ -1,8 +1,9 @@
-import Tab from '../Tab/Tab';
+import React from 'react';
+import { TabProps } from '../Tab/Tab';
 import classes from './Tabs.module.css';
 
 type TabsProps = {
-  children: React.ReactElement<typeof Tab>[];
+  children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
   variant?: 'pill' | 'underline';
   selected?: number;
 };
@@ -15,7 +16,14 @@ const Tabs = ({children, variant = 'pill', selected = 0}: TabsProps) => {
 
   return (
     <nav role="tablist" className={className}>
-      {children}
+      {
+        React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, {
+            variant,
+            selected: index === selected,
+          });
+        })
+      }
     </nav>
   );
 }

@@ -1,6 +1,6 @@
 import classes from './Tab.module.css';
 
-type TabProps = {
+export type TabProps = {
   children: React.ReactNode;
   variant?: 'pill' | 'underline';
   selected?: boolean;
