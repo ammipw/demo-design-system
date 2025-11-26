@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Pill: Story = {
   args: {
     children: [
       <Tab>Tab 1</Tab>,
@@ -19,6 +19,18 @@ export const Default: Story = {
       <Tab>Tab 3</Tab>
     ],
     variant: 'pill',
+    selected: 0
+  }
+};
+
+export const Underline: Story = {
+  args: {
+    children: [
+      <Tab>Tab 1</Tab>,
+      <Tab>Tab 2</Tab>,
+      <Tab>Tab 3</Tab>
+    ],
+    variant: 'underline',
     selected: 0
   }
 };

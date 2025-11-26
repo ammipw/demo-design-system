@@ -1,6 +1,6 @@
 import classes from './Badge.module.css';
 
-export type BadgeProps = {
+export interface BadgeProps {
   children: React.ReactNode;
   variant?: 'neutral' | 'positive' | 'negative';
 };

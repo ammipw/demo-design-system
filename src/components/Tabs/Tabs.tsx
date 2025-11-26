@@ -2,13 +2,15 @@ import React from 'react';
 import { TabProps } from '../Tab/Tab';
 import classes from './Tabs.module.css';
 
-type TabsProps = {
+export interface TabsProps {
   children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
   variant?: 'pill' | 'underline';
-  selected?: number;
+  selected?: string|number;
+  onSelect?: (name: string|number) => void;
+  defaultSelected?: string|number;
 };
 
-const Tabs = ({children, variant = 'pill', selected = 0}: TabsProps) => {
+const Tabs = ({children, variant = 'pill', selected = "emails", onSelect}: TabsProps) => {
   const className = `
     ${classes.tabs}
     ${classes[variant]}
@@ -19,8 +21,11 @@ const Tabs = ({children, variant = 'pill', selected = 0}: TabsProps) => {
       {
         React.Children.map(children, (child, index) => {
           return React.cloneElement(child, {
+            key: index,
             variant,
-            selected: index === selected,
+            selected: child.props.name === selected || index === selected,
+            onSelect: () => onSelect?.(child.props.name as string || index),
+            children: child.props.children
           });
         })
       }
