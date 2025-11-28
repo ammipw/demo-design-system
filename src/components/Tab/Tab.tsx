@@ -1,5 +1,5 @@
 import { useTabs } from '../../contexts/TabsContext';
-import classes from './Tab.module.css';
+import classes from './Tab.module.scss';
 
 export interface TabProps {
   children: React.ReactNode;

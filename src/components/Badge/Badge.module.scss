@@ -1,0 +1,32 @@
+@use "../../index.scss" as *;
+
+.badge {
+  /* Colors */
+  --primary: #1B2134;
+  --background: #F1F1F1;
+  --positive: #B1FFC7;
+  --negative: #FFBFB1;
+
+  /* Borders */
+  --border-radius: 12px;
+
+  @include body-s;
+  display: inline-block;
+  padding: var(--space-4xs) var(--space-3xs);
+  border-radius: var(--border-radius);
+  color: var(--primary);
+  background-color: var(--background);
+  white-space: nowrap;
+
+  &.positive {
+    background-color: var(--positive);
+  }
+
+  &.negative {
+    background-color: var(--negative);
+  }
+
+  @media (min-width: 768px) {
+    padding: var(--space-3xs) var(--space-2xs);
+  }
+}

@@ -1,0 +1,58 @@
+:root {
+  /* Colors */
+  --background: #fff;
+  --content: #000;
+
+  /* Spacing */
+  --space-0: 0px;
+  --space-4xs: 2px;
+  --space-3xs: 4px;
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-s: 16px;
+  --space-m: 20px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Typography */
+  --font-size-s: 12px;
+  --font-size-m: 14px;
+  --font-line-height: 150%;
+  --font-family: 'Inter', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+@mixin body-base {
+    line-height: var(--font-line-height);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
+}
+
+@mixin body-s {
+    @include body-base;
+    font-size: var(--font-size-s);
+}
+
+@mixin body-m {
+    @include body-base;
+    font-size: var(--font-size-m);
+}
+
+* {
+  box-sizing: border-box;
+  margin: var(--space-0);
+  padding: var(--space-0);
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--content);
+}
+
+a, button {
+  cursor: pointer;
+}

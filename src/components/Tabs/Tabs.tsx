@@ -1,51 +1,44 @@
 import React from 'react';
-import { TabProps } from '../Tab/Tab';
-import classes from './Tabs.module.css';
+import Tab, { TabProps } from '../Tab/Tab';
+import classes from './Tabs.module.scss';
 import { TabsProvider } from '../../contexts/TabsContext';
+import TabContent from '../TabsContent/TabsContent';
 
-export interface TabsProps {
+export interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
   variant?: 'pill' | 'underline';
   selected?: string|number;
-  onSelect?: (name: string|number) => void;
-  defaultValue: string;
+  defaultValue?: string;
 };
 
-const Tabs = ({children, variant = 'pill', selected = "emails", onSelect, defaultValue}: TabsProps) => {
+const Tabs = ({children, variant = 'pill', selected, defaultValue, ...props}: TabsProps) => {
   const className = `
     ${classes.tabs}
     ${classes[variant]}
   `;
 
-  const tabs:any = [];
-  React.Children.forEach(children, (child) => {
-    // if (child.type === Tab)
-      tabs.push(React.cloneElement(child, {
-        variant,
-        selected: child.props.value === selected,
-        onSelect: () => onSelect && onSelect(child.props.value),
-      }));
-    // if (child.type === 'TabsContent') {
-    //   tabContents.push(child);
-    // }
-  });
+  const tabs:any[] = React.Children.toArray(children);
+  const tabButtons = tabs.filter(tab => tab.type.name === "Tab");
+  const tabContents = tabs.filter(tab => tab.type.name === "TabContent");
 
   return (
-    <TabsProvider defaultValue={defaultValue}>
-      <nav role="tablist" className={className}>
-        {tabs.map((tab:any, index:number) => (
-          <React.Fragment key={index}>
-            {tab}
-          </React.Fragment>
-        ))}
-      </nav>
-      {/* <div>
-        {tabContents.map((content:any, index:number) => (
-          <React.Fragment key={index}>
-            {content}
-          </React.Fragment>
-        ))}
-      </div> */}
+    <TabsProvider defaultValue={defaultValue ?? tabs[0]?.props.value}>
+      <div style={props.style}>
+        <nav role="tablist" className={className}>
+          {tabButtons.map((tab:any, index:number) => (
+            <Tab key={index} variant={variant} value={tab.props.value}>
+              {tab.props.children}
+            </Tab>
+          ))}
+        </nav>
+        <div>
+          {tabContents.map((content:any, index:number) => (
+            <TabContent key={index} value={content.props.value}>
+              {content.props.children}
+            </TabContent>
+          ))}
+        </div>
+      </div>
     </TabsProvider>
   );
 }

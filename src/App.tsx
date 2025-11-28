@@ -1,4 +1,4 @@
-import { Badge, Tab, Tabs, TabsContent } from "./components";
+import { Badge, Tab, Tabs, TabContent } from "./components";
 
 const App = () => {
   return (
@@ -6,26 +6,27 @@ const App = () => {
       {/* Example error - requires Tabs parent */}
       {/* <Tab name="test">Test</Tab> */}
 
-      {/* Example usage 1 */}
-      <Tabs variant="underline" defaultValue="emails">
+      {/* Example using only Tabs and Tab components */}
+      <Tabs>
         <Tab value="emails">Emails</Tab>
         <Tab value="files">Files<Badge variant="negative">Warning</Badge></Tab>
         <Tab value="edits">Edits</Tab>
         <Tab value="downloads">Downloads</Tab>
-        <Tab value="docs">Docs</Tab>
-        <TabsContent value="emails">Emails Content</TabsContent>
-        <TabsContent value="files">Files Content</TabsContent>
-        <TabsContent value="edits">Edits Content</TabsContent>
-        <TabsContent value="downloads">Downloads Content</TabsContent>
-        <TabsContent value="docs">Docs Content</TabsContent>
+        <Tab value="messages">Messages</Tab>
       </Tabs>
 
-      {/* Example usage 2 */}
-      <Tabs variant="pill" defaultValue="store">
-        <Tab value="store">Store<Badge variant="positive">Sale</Badge></Tab>
-        <Tab value="basket">Basket</Tab>
-        <TabsContent value="store">Store Content</TabsContent>
-        <TabsContent value="basket">Basket Content</TabsContent>
+      {/* Example using TabContent component */}
+      <Tabs variant="underline" defaultValue="downloads">
+        <Tab value="emails">Emails<Badge>10 unread</Badge></Tab>
+        <Tab value="files">Files</Tab>
+        <Tab value="edits">Edits</Tab>
+        <Tab value="downloads">Downloads<Badge variant="positive">Done</Badge><Badge>Offline</Badge></Tab>
+        <Tab value="messages">Messages</Tab>
+        <TabContent value="emails">Emails Content</TabContent>
+        <TabContent value="files">Files Content</TabContent>
+        <TabContent value="edits">Edits Content</TabContent>
+        <TabContent value="downloads">Downloads Content</TabContent>
+        <TabContent value="messages">Messages Content</TabContent>
       </Tabs>
     </>
   );

@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import Tab from './Tab';
 
 const meta = {
+  title: 'Components/Tab',
   component: Tab,
 } satisfies Meta<typeof Tab>;
 
@@ -15,6 +16,7 @@ export const Pill: Story = {
     children: 'Tab',
     variant: 'pill',
     selected: false,
+    value: 'tab1',
   }
 };
 
@@ -23,5 +25,6 @@ export const Underline: Story = {
     children: 'Tab',
     variant: 'underline',
     selected: false,
+    value: 'tab2',
   }
 };

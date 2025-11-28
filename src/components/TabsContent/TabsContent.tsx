@@ -1,11 +1,11 @@
 import { useTabs } from "../../contexts/TabsContext";
 
-interface TabsContentProps {
+interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   value: string;
 }
 
-const TabsContent = ({children, value}: TabsContentProps) => {
+const TabContent = ({children, value}: TabsContentProps) => {
   const { selectedTab } = useTabs();
 
   if (selectedTab !== value) {
@@ -19,4 +19,4 @@ const TabsContent = ({children, value}: TabsContentProps) => {
   );
 }
 
-export default TabsContent;
+export default TabContent;

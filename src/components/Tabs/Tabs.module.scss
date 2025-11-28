@@ -1,0 +1,22 @@
+.tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 6px;
+
+  &.pill {
+    gap: var(--space-2xs);
+
+    @media (min-width: 768px) {
+      gap: var(--space-xs);
+    }
+  }
+
+  &.underline {
+    gap: var(--space-l);
+
+    @media (min-width: 768px) {
+      gap: var(--space-xl);
+    }
+  }
+}
