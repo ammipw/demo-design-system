@@ -13,10 +13,10 @@ function Placeholder({rows = 2, cols = 3}: {rows?: number; cols?: number}) {
 const App = () => {
   return (
     <>
-      {/* Example: Using only Tabs and Tab components */}
+      {/* Example: Using only default props */}
       <Tabs>
         <Tab>Emails</Tab>
-        <Tab>Files<Badge variant="negative">Warning</Badge></Tab>
+        <Tab>Files<Badge>Offline</Badge></Tab>
         <Tab>Edits</Tab>
         <Tab>Downloads</Tab>
         <Tab>Messages</Tab>
@@ -30,7 +30,7 @@ const App = () => {
         <Tab value="emails">Emails<Badge>5</Badge></Tab>
         <Tab value="files">Files</Tab>
         <Tab value="edits">Edits</Tab>
-        <Tab value="downloads">Downloads<Badge variant="positive">Done</Badge><Badge>Offline</Badge></Tab>
+        <Tab value="downloads">Downloads<Badge variant="positive">Ready</Badge><Badge variant="negative">2GB Free</Badge></Tab>
         <Tab value="messages">Messages</Tab>
         <TabContent value="emails"><Placeholder rows={5} cols={1} /></TabContent>
         <TabContent value="files"><Placeholder /></TabContent>
