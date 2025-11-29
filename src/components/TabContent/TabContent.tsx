@@ -2,7 +2,7 @@ import { useTabs } from "../../contexts/TabsContext";
 
 interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  value: string;
+  value?: string|number;
 }
 
 const TabContent = ({children, value}: TabsContentProps) => {

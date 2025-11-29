@@ -32,7 +32,7 @@ const Tabs = ({children, variant = "pill", selected = 0, ...props}: TabsProps) =
         </nav>
         <div>
           {tabContents.map((content:any, index:number) => (
-            <TabContent key={index} value={content.props.value}>
+            <TabContent key={index} value={content.props.value || index}>
               {content.props.children}
             </TabContent>
           ))}

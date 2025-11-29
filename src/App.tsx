@@ -20,6 +20,9 @@ const App = () => {
         <Tab>Edits</Tab>
         <Tab>Downloads</Tab>
         <Tab>Messages</Tab>
+        <TabContent><Placeholder rows={5} cols={1} /></TabContent>
+        <TabContent><Placeholder /></TabContent>
+        <TabContent><Placeholder rows={4} cols={4} /></TabContent>
       </Tabs>
 
       {/* Example: Using TabContent component */}
