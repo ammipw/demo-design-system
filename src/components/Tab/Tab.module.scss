@@ -1,6 +1,28 @@
 @use "../../index.scss" as *;
 
 .tab {
+  --pill-default-background: var(--color-background);
+  --pill-default-text: var(--color-primary-100);
+  --pill-default-hover: var(--color-primary-20);
+  --pill-default-active: var(--color-primary-40);
+  --pill-selected-background: var(--color-primary-100);
+  --pill-selected-text: var(--color-background);
+  --pill-selected-hover: var(--color-primary-80);
+  --pill-selected-active: var(--color-primary-50);
+
+  @mixin pill-base {
+    border-radius: 100px;
+    background-color: white;
+    border: 1px solid #D3D3DC;
+    padding: 0 var(--space-s);
+    background-color: var(--pill-default-background);
+    color: var(--pill-default-text);
+  }
+
+  @mixin underline-base {
+    background-color: transparent;
+  }
+
   @include body-m;
   height: 42px;
   border: none;
@@ -11,7 +33,6 @@
 
   @media (min-width: 768px) {
     height: 50px;
-    padding: 12px 16px;
   }
 
   &:focus {
@@ -20,10 +41,7 @@
   }
 
   &.pill {
-    border-radius: 100px;
-    background-color: white;
-    border: 1px solid #D3D3DC;
-    padding: 0 var(--space-s);
+    @include pill-base;
 
     &:hover {
       background-color: #F0F0F0;
@@ -34,7 +52,7 @@
     }
 
     &.selected {
-      background-color: #000;
+      background-color: #1B2134;
       color: #FFF;
       border: none;
 
@@ -52,17 +70,17 @@
     background-color: transparent;
     padding: 0;
     border-bottom: 2px solid transparent;
+    
+    &:hover {
+      border-bottom: 2px solid #C4C5CF;
+    }
+
+    &:active {
+      border-bottom: 2px solid #C4C5CF;
+    }
 
     &.selected {
-      border-bottom: 2px solid #000;
-
-      &:hover {
-        background-color: #F0F0F0;
-      }
-
-      &:active {
-        background-color: #F0F0F0;
-      }
+      border-bottom: 2px solid #1B2134;
     }
   }
 }

@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Tabs from './Tabs';
-import Tab from '../Tab/Tab';
+import Tabs from "./Tabs";
+import Tab from "../Tab/Tab";
 
 const meta = {
   component: Tabs,
@@ -18,19 +18,21 @@ export const Pill: Story = {
       <Tab>Tab 2</Tab>,
       <Tab>Tab 3</Tab>
     ],
-    variant: 'pill',
-    selected: 0
+    selected: 1
+  },
+  argTypes: {
+    selected: { control: "number" }
   }
 };
 
 export const Underline: Story = {
   args: {
     children: [
-      <Tab>Tab 1</Tab>,
-      <Tab>Tab 2</Tab>,
-      <Tab>Tab 3</Tab>
+      <Tab value="tab1">Tab 1</Tab>,
+      <Tab value="tab2">Tab 2</Tab>,
+      <Tab value="tab3">Tab 3</Tab>
     ],
-    variant: 'underline',
-    selected: 0
+    variant: "underline",
+    selected: "tab3"
   }
 };

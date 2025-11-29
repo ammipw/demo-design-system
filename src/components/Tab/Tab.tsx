@@ -1,24 +1,23 @@
-import { useTabs } from '../../contexts/TabsContext';
-import classes from './Tab.module.scss';
+import classes from "./Tab.module.scss";
+import { useTabs } from "../../contexts/TabsContext";
 
-export interface TabProps {
+export interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  value: string;
-  variant?: 'pill' | 'underline';
-  selected?: boolean;
-  onSelect?: () => void;
+  value?: string | number;
+  variant?: "pill" | "underline";
 };
 
-const Tab = ({children, value: name, variant = 'pill', selected = false, onSelect}: TabProps) => {
+const Tab = ({children, value, variant = "pill"}: TabProps) => {
   const { selectedTab, setSelectedTab } = useTabs();
+
   const className = `
     ${classes.tab}
     ${classes[variant]}
-    ${selectedTab === name ? classes.selected : ''}
+    ${selectedTab === value ? classes.selected : ""}
   `;
 
   return (
-    <button role="tab" aria-selected={selected} className={className} onClick={() => setSelectedTab(name)}>
+    <button role="tab" aria-selected={selectedTab === value} className={className} onClick={() => setSelectedTab(value)}>
       {children}
     </button>
   );

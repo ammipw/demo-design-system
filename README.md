@@ -1,12 +1,10 @@
-# Frontend Interview - Design System
+# Tabs Component - Ami Baruwa-Etti
 
-Hey 👋
+## Overview
 
-This is the base repository for the home test. The repository is created with `vite` and is empty, but contains some packages already installed, in particular:
+A reusable Tabs component that allows users to navigate between different content panels. Supports keyboard navigation and accessible ARIA attributes.
 
-- `react`
-- `storybook`
-- `vitest`
+The figma design file is available [here](https://www.figma.com/design/OclakAGLSXDoMKLFvwLNMP/%F0%9F%92%BB-Design-System-Home-Test---Tabs-Component?node-id=0-1&t=4pG7NN6HKxgxroDz-1).
 
 ## Install and run
 
@@ -22,6 +20,13 @@ pnpm dev
 pnpm storybook
 ```
 
-## Figma file
+## Components
 
-The figma file of the home test is available [here](https://www.figma.com/design/OclakAGLSXDoMKLFvwLNMP/%F0%9F%92%BB-Design-System-Home-Test---Tabs-Component?node-id=0-1&t=4pG7NN6HKxgxroDz-1).
+### Tabs
+- **Location**: `src/components/Tabs`
+
+### Tab
+- **Location**: `src/components/Tab`
+
+### Badge
+- **Location**: `src/components/Badge`

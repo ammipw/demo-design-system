@@ -1,17 +1,16 @@
-import React from 'react';
-import Tab, { TabProps } from '../Tab/Tab';
-import classes from './Tabs.module.scss';
-import { TabsProvider } from '../../contexts/TabsContext';
-import TabContent from '../TabsContent/TabsContent';
+import React from "react";
+import Tab from "../Tab/Tab";
+import classes from "./Tabs.module.scss";
+import { TabsProvider } from "../../contexts/TabsContext";
+import TabContent from "../TabContent/TabContent";
 
 export interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
-  variant?: 'pill' | 'underline';
+  children: React.ReactNode;
+  variant?: "pill" | "underline";
   selected?: string|number;
-  defaultValue?: string;
 };
 
-const Tabs = ({children, variant = 'pill', selected, defaultValue, ...props}: TabsProps) => {
+const Tabs = ({children, variant = "pill", selected = 0, ...props}: TabsProps) => {
   const className = `
     ${classes.tabs}
     ${classes[variant]}
@@ -22,11 +21,11 @@ const Tabs = ({children, variant = 'pill', selected, defaultValue, ...props}: Ta
   const tabContents = tabs.filter(tab => tab.type.name === "TabContent");
 
   return (
-    <TabsProvider defaultValue={defaultValue ?? tabs[0]?.props.value}>
+    <TabsProvider defaultValue={typeof selected === "number" ? tabButtons[selected].props.value || selected : selected}>
       <div style={props.style}>
         <nav role="tablist" className={className}>
           {tabButtons.map((tab:any, index:number) => (
-            <Tab key={index} variant={variant} value={tab.props.value}>
+            <Tab key={index} variant={variant} value={tab.props.value || index}>
               {tab.props.children}
             </Tab>
           ))}

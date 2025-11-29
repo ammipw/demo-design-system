@@ -3,7 +3,7 @@
 .badge {
   /* Colors */
   --primary: #1B2134;
-  --background: #F1F1F1;
+  --neutral: #F1F1F1;
   --positive: #B1FFC7;
   --negative: #FFBFB1;
 
@@ -15,7 +15,7 @@
   padding: var(--space-4xs) var(--space-3xs);
   border-radius: var(--border-radius);
   color: var(--primary);
-  background-color: var(--background);
+  background-color: var(--neutral);
   white-space: nowrap;
 
   &.positive {
