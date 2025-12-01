@@ -1,12 +1,12 @@
 :root {
   /* Colors */
-  --color-background: #FFFFFF;
-  --color-primary-100: #1B2134;
-  --color-primary-80: #343A4E;
-  --color-primary-60: #585D71;
-  --color-primary-40: #C4C5CF;
-  --color-primary-20: #F1F1F7;
-  --color-primary-10: #F6F6FA;
+  --color-background: #ffffff;
+  --color-primary-100: #1b2134;
+  --color-primary-80: #343a4e;
+  --color-primary-60: #585d71;
+  --color-primary-40: #c4c5cf;
+  --color-primary-20: #f1f1f7;
+  --color-primary-10: #f6f6fa;
 
   /* Spacing */
   --space-0: 0px;
@@ -38,19 +38,19 @@
 // }
 
 @mixin body-base {
-    line-height: var(--font-line-height);
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-bold);
+  line-height: var(--font-line-height);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
 }
 
 @mixin body-s {
-    @include body-base;
-    font-size: var(--font-size-s);
+  @include body-base;
+  font-size: var(--font-size-s);
 }
 
 @mixin body-m {
-    @include body-base;
-    font-size: var(--font-size-m);
+  @include body-base;
+  font-size: var(--font-size-m);
 }
 
 * {
@@ -65,6 +65,7 @@ body {
   color: var(--color-primary);
 }
 
-a, button {
+a,
+button {
   cursor: pointer;
 }

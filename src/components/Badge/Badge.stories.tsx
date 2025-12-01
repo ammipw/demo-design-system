@@ -5,6 +5,9 @@ import Badge from "./Badge";
 const meta = {
   title: "Components/Badge",
   component: Badge,
+  argTypes: {
+    children: { table: { disable: true } },
+  },
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -15,5 +18,5 @@ export const Default: Story = {
   args: {
     children: "Badge",
     variant: "neutral",
-  }
+  },
 };

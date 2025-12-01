@@ -5,9 +5,9 @@ export interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   value?: string | number;
   variant?: "pill" | "underline";
-};
+}
 
-const Tab = ({children, value, variant = "pill"}: TabProps) => {
+const Tab = ({ children, value, variant = "pill" }: TabProps) => {
   const { selectedTab, setSelectedTab } = useTabs();
 
   const className = `
@@ -16,11 +16,22 @@ const Tab = ({children, value, variant = "pill"}: TabProps) => {
     ${selectedTab === value ? classes.selected : ""}
   `;
 
+  function handleClick() {
+    if (value !== undefined) {
+      setSelectedTab(value);
+    }
+  }
+
   return (
-    <button role="tab" aria-selected={selectedTab === value} className={className} onClick={() => setSelectedTab(value)}>
+    <button
+      role="tab"
+      aria-selected={selectedTab === value}
+      className={className}
+      onClick={handleClick}
+    >
       {children}
     </button>
   );
-}
+};
 
 export default Tab;

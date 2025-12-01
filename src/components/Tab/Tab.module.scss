@@ -13,7 +13,7 @@
   @mixin pill-base {
     border-radius: 100px;
     background-color: white;
-    border: 1px solid #D3D3DC;
+    border: 1px solid #d3d3dc;
     padding: 0 var(--space-s);
     background-color: var(--pill-default-background);
     color: var(--pill-default-text);
@@ -38,30 +38,31 @@
   &:focus {
     outline: auto;
     outline-offset: 4px;
+    outline-color: var(--pill-default-text);
   }
 
   &.pill {
     @include pill-base;
 
     &:hover {
-      background-color: #F0F0F0;
+      background-color: #f0f0f0;
     }
 
     &:active {
-      background-color: #F0F0F0;
+      background-color: #f0f0f0;
     }
 
     &.selected {
-      background-color: #1B2134;
-      color: #FFF;
-      border: none;
+      background-color: var(--pill-default-text);
+      color: #fff;
+      border-color: var(--pill-default-text);
 
       &:hover {
-        background-color: #343A4E;
+        background-color: #343a4e;
       }
 
       &:active {
-        background-color: #585D71;
+        background-color: #585d71;
       }
     }
   }
@@ -70,17 +71,17 @@
     background-color: transparent;
     padding: 0;
     border-bottom: 2px solid transparent;
-    
+
     &:hover {
-      border-bottom: 2px solid #C4C5CF;
+      border-bottom: 2px solid #c4c5cf;
     }
 
     &:active {
-      border-bottom: 2px solid #C4C5CF;
+      border-bottom: 2px solid #c4c5cf;
     }
 
     &.selected {
-      border-bottom: 2px solid #1B2134;
+      border-bottom: 2px solid var(--pill-default-text);
     }
   }
 }
